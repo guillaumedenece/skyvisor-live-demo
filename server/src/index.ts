@@ -24,10 +24,11 @@ app.get('/api/months', (_req, res) => {
 app.get('/api/fruits', (req, res) => {
   const monthParam = req.query.month;
   const month = monthParam ? Number(monthParam) : new Date().getMonth() + 1;
+  const maxMonth = getMonthNames().length;
 
-  if (Number.isNaN(month) || month < 1 || month > 12) {
+  if (Number.isNaN(month) || month < 1 || month > maxMonth) {
     return res.status(400).json({
-      error: 'Invalid month. Use a number between 1 and 12.',
+      error: `Invalid month. Use a number between 1 and ${maxMonth}.`,
     });
   }
 

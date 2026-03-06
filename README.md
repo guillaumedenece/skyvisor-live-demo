@@ -7,7 +7,7 @@ A small full-stack app that shows **seasonal fruits by month**: Express + TypeSc
 - **Backend** (`server/`): Express API with TypeScript
   - `GET /api/health` — health check
   - `GET /api/months` — list of months (value + label)
-  - `GET /api/fruits?month=1` — fruits for a given month (1–12), with name, image URL, and description
+  - `GET /api/fruits?month=1` — fruits for a given month (1–13), with name, image URL, and description
 - **Frontend** (`client/`): React + TypeScript (Vite)
   - Month dropdown
   - On month change, calls the API and displays fruits with images
@@ -72,7 +72,7 @@ This starts both the server and the client (requires `concurrently` from the roo
 |--------|---------------------|-------------|
 | GET    | `/api/health`       | Health check |
 | GET    | `/api/months`       | List of months `[{ value, label }]` |
-| GET    | `/api/fruits?month=N` | Fruits for month `N` (1–12). Response: `{ month, monthName, fruits }`. Each fruit has `id`, `name`, `image`, `description`. |
+| GET    | `/api/fruits?month=N` | Fruits for month `N` (1–13). Response: `{ month, monthName, fruits }`. Each fruit has `id`, `name`, `image`, `description`. |
 
 Example:
 
