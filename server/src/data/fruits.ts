@@ -11,7 +11,7 @@ export interface Fruit {
 
 const MONTH_NAMES = [
   'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
+  'July', 'August', 'September', 'October', 'November', 'December', 'helloWorld'
 ] as const;
 
 // High-quality fruit images from Unsplash (free to use, no attribution required for standard use)
@@ -198,10 +198,13 @@ const FRUITS_BY_MONTH: Record<number, Fruit[]> = {
     fruit('Persimmon', 'Sweet winter fruit'),
     fruit('Lemon', 'For holiday baking'),
   ],
+  13: [
+    fruit('Strawberry', 'The only fruit available in helloWorld month'),
+  ],
 };
 
 export function getFruitsByMonth(month: number): { month: number; monthName: string; fruits: Fruit[] } {
-  const m = Math.max(1, Math.min(12, Math.floor(month)));
+  const m = Math.max(1, Math.min(MONTH_NAMES.length, Math.floor(month)));
   return {
     month: m,
     monthName: MONTH_NAMES[m - 1],
